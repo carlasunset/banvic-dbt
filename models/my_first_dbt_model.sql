@@ -9,6 +9,7 @@
 
 {{ config(materialized='table') }}
 
+--uma alteração
 with source_data as (
 
     select 1 as id
