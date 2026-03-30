@@ -1,5 +1,5 @@
 models:
-  - name: stg_erp__clientes
+  - name: _stg_erp__clientes
     description: Modelo staging para os dados de clientes provenientes do sistema ERP.
     columns:
       - name: pk_cliente

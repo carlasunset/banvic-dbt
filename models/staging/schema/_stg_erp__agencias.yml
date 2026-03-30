@@ -1,5 +1,5 @@
 models:
-  - name: stg_erp__agencias
+  - name: _stg_erp__agencias
     description: Modelo staging para agencias.
     columns:
       - name: pk_agencia

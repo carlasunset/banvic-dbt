@@ -1,5 +1,5 @@
 models:
-  - name: stg_erp__colaboradores
+  - name: _stg_erp__colaboradores
     description: Modelo staging para os dados de colaboradores provenientes do sistema ERP.
     columns:
       - name: pk_colaborador
