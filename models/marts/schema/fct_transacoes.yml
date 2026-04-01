@@ -1,0 +1,53 @@
+models:
+  - name: fct_transacoes
+    description: Fato que consolida as transações financeiras realizadas em contas, enriquecida com informações de cliente, agência, colaborador e data.
+    columns:
+      - name: pk_transacao
+        description: Chave primária da transação financeira.
+      - name: fk_conta
+        description: Chave estrangeira que referencia a conta onde a transação foi realizada.
+        data_tests:
+          - relationships:
+              arguments:
+                field: pk_conta
+                to: ref('dim_contas')
+      - name: fk_cliente
+        description: Chave estrangeira que referencia o cliente titular da conta.
+        data_tests:
+          - relationships:
+              arguments:
+                field: pk_cliente
+                to: ref('dim_clientes')
+      - name: fk_agencia
+        description: Chave estrangeira que referencia a agência vinculada à conta.
+        data_tests:
+          - relationships:
+              arguments: 
+                field: pk_agencia
+                to: ref('dim_agencias')
+      - name: fk_colaborador
+        description: Chave estrangeira que referencia o colaborador responsável pela conta.
+        data_tests:
+          - relationships:
+              arguments: 
+                field: pk_colaborador
+                to: ref('dim_colaboradores')
+      - name: fk_data
+        description: Chave estrangeira que referencia a dimensão de datas correspondente à data da transação.
+        data_tests:
+          - relationships:
+              arguments: 
+                field: pk_data
+                to: ref('dim_datas')
+      - name: numero_transacao
+        description: Número identificador da transação.
+      - name: data_transacao
+        description: Data da transação (sem timestamp).
+      - name: ts_transacao
+        description: Timestamp completo da transação.
+      - name: nome_transacao
+        description: Nome ou descrição da transação.
+      - name: tipo_trasacao
+        description: Tipo da transação, classificada como 'Crédito' ou 'Débito'.
+      - name: valor_transacao
+        description: Valor monetário da transação.
