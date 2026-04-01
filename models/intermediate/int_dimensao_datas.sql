@@ -12,7 +12,7 @@ with
     , criar_datas as (
         select 
         row_number() over(order by date_day) as pk_data
-        , cast(date_day as date) as dt_data
+        , cast(date_day as date) as data_completa
         , extract(day from date_day) as dia
         , extract(month from date_day) as mes
         , extract(year from date_day) as ano
