@@ -10,8 +10,7 @@ sources:
             description: Chave primária da tabela localidades.
             data_tests:
               - unique
-              - not_null      
-
+              - not_null 
       - name: clientes
         description: Tabela fonte de clientes com informações pessoais de cada cliente da Banvic.
         columns:
@@ -19,8 +18,7 @@ sources:
             description: Chave primária da tabela clientes.
             data_tests:
               - unique
-              - not_null
-              
+              - not_null   
       - name: agencias
         description: Tabela fonte de agencias com informações de cada agencia da Banvic.
         columns:
@@ -29,7 +27,6 @@ sources:
             data_tests:
               - unique
               - not_null
-            
       - name: colaboradores
         description: Tabela fonte de colaboradores com informações pessoais de cada colaborador da Banvic.  
         columns:
@@ -38,7 +35,6 @@ sources:
             data_tests:
               - unique
               - not_null
-
       - name: colaborador_agencia
         data_tests:
           - dbt_utils.unique_combination_of_columns:
@@ -46,4 +42,32 @@ sources:
                 combination_of_columns:
                   - cod_colaborador
                   - cod_agencia
-            
+
+      - name: contas
+        description: Tabela que registra as informações das contas bancárias dos clientes, incluindo número da conta, agência, saldo, tipo de conta e data de abertura.
+        columns:
+          - name: num_conta
+            data_tests:
+              - unique 
+              - not_null
+      - name: propostas_credito
+        description: Tabela que armazena as propostas de crédito feitas aos clientes, incluindo dados como taxa de juros, valor da proposta, valor financiado, parcelas e status da proposta.
+        columns:
+          - name: cod_proposta
+            data_tests:
+              - unique 
+              - not_null
+      - name: transacoes
+        description: Tabela que registra as transações realizadas nas contas dos clientes, incluindo tipo da transação, valor e data da transação.
+        columns:
+          - name: cod_transacao
+            data_tests:
+              - unique 
+              - not_null
+      - name: localidades
+        description: Tabela que registra as informações de cidade e estado.
+        columns:
+          - name: cod_localidade
+            data_tests:
+              - unique 
+              - not_null
